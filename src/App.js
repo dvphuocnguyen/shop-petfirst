@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { DataProvider } from './GlobalState';
+import Header from './components/Header/Header';
+import Footer from './components/footer/Footer';
+import Pages from './components/mainpages/Pages';
+import { TopHeader } from './components/top-header/TopHeader';
 
 function App() {
+  // var body = {
+  //   name:"Koh",
+  //   type:[
+  //     {
+  //       name:"Koh",
+  //       price:"10",
+  //     }
+  //   ]
+  // }
+
+  // console.log(body.type[0].name)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DataProvider>
+      <Router>
+          <TopHeader />
+          <Header />
+          <Pages />
+          <Footer />
+      </Router>
+    </DataProvider>
   );
 }
 
